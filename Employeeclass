@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+class Employee {
+    int employeeId;
+    String employeeName;
+}
+class Developer extends Employee {
+    String programmingLanguage;
+
+    void displayDetails() {
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Employee Name: " + employeeName);
+        System.out.println("Programming Language: " + programmingLanguage);
+    }
+}
+
+public class Employee1{
+    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//
+//        // Input developer details
+//        int id = sc.nextInt();
+//        sc.nextLine(); // consume newline
+//        String name = sc.nextLine();
+//        String language = sc.nextLine();
+        Developer d = new Developer();
+        d.employeeId = 1;
+        d.employeeName = "suresh";
+        d.programmingLanguage = "Java21";
+        d.displayDetails();
+    }
+}
