@@ -1,0 +1,62 @@
+
+class Product {
+     int productId;
+    String productName;
+    double price;
+
+    public Product(int productId, String productName, double price) {
+        this.productId = productId;
+        this.productName = productName;
+      this.price = price;
+    }
+
+    public void displayProductInfo() {
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Price: " + price);
+    }
+}
+class Electronics extends Product {
+     String brand;
+    int warrantyYears;
+    public Electronics(int productId, String productName, double price, String brand, int warrantyYears) {
+        super(productId, productName, price);
+        this.brand = brand;
+        this.warrantyYears = warrantyYears;
+    }
+    public void displayElectronicsInfo() {
+        displayProductInfo();
+        System.out.println("Brand: " + brand);
+        System.out.println("Warranty: " + warrantyYears + " years");
+    }
+}
+class Clothing extends Product {
+    private String size;
+    private String material;
+
+    public Clothing(int productId, String productName, double price, String size, String material) {
+        super(productId, productName, price);
+        this.size = size;
+        this.material = material;
+    }
+
+    public void displayClothingInfo() {
+        displayProductInfo();
+        System.out.println("Size: " + size);
+        System.out.println("Material: " + material);
+    }
+}
+
+// Main class to test
+public class ShoppingCart {
+    public static void main(String[] args) {
+        Electronics e = new Electronics(101, "Smartphone", 25000, "Samsung", 2);
+        Clothing c = new Clothing(202, "T-Shirt", 799, "L", "Cotton");
+
+        System.out.println(" Electronics Product");
+        e.displayElectronicsInfo();
+
+        System.out.println(" Clothing Product");
+        c.displayClothingInfo();
+    }
+}
