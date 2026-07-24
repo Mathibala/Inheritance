@@ -1,0 +1,58 @@
+
+import java.util.Scanner;
+
+// Parent class
+class Employees {
+    String name;
+    double basicSalary;
+
+    // Method to calculate salary (to be overridden)
+    double calculateSalary() {
+        return basicSalary;
+    }
+}
+
+// Child class Developer overrides calculateSalary()
+class Developers extends Employees {
+    double calculateSalary() {
+        return basicSalary + (basicSalary * 0.20); // 20% bonus
+    }
+}
+
+// Child class Manager overrides calculateSalary()
+class Manager extends Employees {
+    double calculateSalary() {
+        return basicSalary + (basicSalary * 0.30); // 30% bonus
+    }
+}
+
+public class Employee2 {
+    public static void main(String[] args) {
+      //  Scanner sc = new Scanner(System.in);
+
+        // Input details
+       // String name = sc.nextLine();
+        // String role = sc.nextLine();
+      //  double salary = sc.nextDouble();
+
+        Employees emp; // Reference of superclass
+
+        // Create object based on role
+       // if (role.equalsIgnoreCase("Developer")) {
+            emp = new Developers();
+      //  } else if (role.equalsIgnoreCase("Manager")) {
+            emp = new Manager();
+        //} else {
+        //    emp = new Employees(); // fallback
+       // }
+
+       // emp.name = name;
+       // emp.basicSalary = salary;
+
+        // Display final salary
+        System.out.println("Name: " + emp.name);
+        System.out.println("Final Salary: " + emp.calculateSalary());
+
+       // sc.close();
+    }
+}
