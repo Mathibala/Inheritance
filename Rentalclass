@@ -1,0 +1,64 @@
+class Vehicles {
+    protected String vehicleType;
+    protected double rentPerDay;
+
+    public Vehicles(String vehicleType, double rentPerDay) {
+        this.vehicleType = vehicleType;
+        this.rentPerDay = rentPerDay;
+    }
+
+    public void displayVehicleInfo() {
+        System.out.println("Vehicle Type: " + vehicleType);
+        System.out.println("Rent per Day: ₹" + rentPerDay);
+    }
+}
+class CarRental extends Vehicles {
+    private String carModel;
+
+    public CarRental(String carModel, double rentPerDay) {
+        super("Car", rentPerDay);
+        this.carModel = carModel;
+    }
+
+    public double calculateRentalCost(int days) {
+        return rentPerDay * days;
+    }
+
+    public void displayCarRentalInfo(int days) {
+       displayVehicleInfo();
+        System.out.println("Car Model: " + carModel);
+        System.out.println("Number of Days: " + days);
+        System.out.println("Total Rental Cost: ₹" + calculateRentalCost(days));
+    }
+}
+class BikeRental extends Vehicles {
+     String bikeModel;
+
+    public BikeRental(String bikeModel, double rentPerDay) {
+        super("Bike", rentPerDay);
+        this.bikeModel = bikeModel;
+    }
+
+    public double calculateRentalCost(int days) {
+        return rentPerDay * days;
+    }
+
+    public void displayBikeRentalInfo(int days) {
+        displayVehicleInfo();
+        System.out.println("Bike Model: " + bikeModel);
+        System.out.println("Number of Days: " + days);
+        System.out.println("Total Rental Cost: " + calculateRentalCost(days));
+    }
+}
+public class Rentalvehicle {
+    public static void main(String[] args) {
+        CarRental car = new CarRental("Toyota Innova", 1500.0);
+        BikeRental bike = new BikeRental("Yamaha R15", 500.0);
+
+        System.out.println("Car Rental");
+        car.displayCarRentalInfo(3);
+
+        System.out.println(" Bike Rental ");
+        bike.displayBikeRentalInfo(5);
+    }
+}
