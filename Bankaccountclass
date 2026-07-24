@@ -1,0 +1,36 @@
+// Parent class
+class BankAccount {
+     String accountNumber;
+     double balance;
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+    public void displayAccountInfo() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    double interestRate;
+    public SavingsAccount(String accountNumber, double balance, double interestRate) {
+        super(accountNumber, balance);
+        this.interestRate = interestRate;
+    }
+    public double calculateInterest() {
+        return balance * interestRate / 100;
+    }
+
+    public void displaySavingsInfo() {
+        displayAccountInfo();
+        System.out.println("Interest Rate: " + interestRate + "%");
+        System.out.println("Interest Amount: " + calculateInterest());
+    }
+}
+public class BankAccount1 {
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount("123456789", 10000.0, 5.0);
+        sa.displaySavingsInfo();
+    }
+}
