@@ -1,0 +1,49 @@
+class LibraryMember {
+    String memberName;
+
+    public LibraryMember(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void displayMemberInfo() {
+        System.out.println("Member Name: " + memberName);
+    }
+}
+class BookIssue extends LibraryMember {
+     String bookName;
+     String issueDate;
+
+    public BookIssue(String memberName, String bookName, String issueDate) {
+        super(memberName);
+        this.bookName = bookName;
+        this.issueDate = issueDate;
+    }
+
+    public void displayBookIssueInfo() {
+        displayMemberInfo();
+        System.out.println("Book Name: " + bookName);
+        System.out.println("Issue Date: " + issueDate);
+    }
+}
+class Fine extends BookIssue {
+     int lateDays;
+     double fineAmount;
+
+    public Fine(String memberName, String bookName, String issueDate, int lateDays, double finePerDay) {
+        super(memberName, bookName, issueDate);
+        this.lateDays = lateDays;
+        this.fineAmount = lateDays * finePerDay;
+    }
+
+    public void displayFineInfo() {
+        displayBookIssueInfo();
+        System.out.println("Late Days: " + lateDays);
+        System.out.println("Fine Amount: ₹" + fineAmount);
+    }
+}
+public class libraryManagement {
+    public static void main(String[] args) {
+        Fine f = new Fine("Aravindh", "Java Programming", "10-07-2026", 3, 10.0);
+        f.displayFineInfo();
+    }
+}
