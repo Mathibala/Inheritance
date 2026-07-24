@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Vehicle {
+    String brand;
+    String model;
+}
+class Car extends Vehicle {
+    void displayDetails() {
+        System.out.println("Car Brand: " + brand);
+        System.out.println("Car Model: " + model);
+    }
+}
+class Bike extends Vehicle {
+    void displayDetails() {
+        System.out.println("Bike Brand: " + brand);
+        System.out.println("Bike Model: " + model);
+    }
+}
+public class Vehicle1 {
+    public static void main(String[] args) {
+     //   Scanner sc = new Scanner(System.in);
+     //   String carBrand = sc.nextLine();
+       // String carModel = sc.nextLine();
+
+        // Input bike details
+        //String bikeBrand = sc.nextLine();
+       // String bikeModel = sc.nextLine();
+
+        // Create objects
+        Car c = new Car();
+        Bike b = new Bike();
+
+        // Assign values
+        c.brand = "toyoto";
+        c.model = "Hybrid";
+        b.brand = "bajaj";
+        b.model = " pulsar ns200";
+
+        // Display details
+        c.displayDetails();
+        b.displayDetails();
+
+       //   sc.close();
+    }
+}
